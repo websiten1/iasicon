@@ -762,13 +762,7 @@ section.tight { padding: 64px 0; }
   gap: 48px;
 }
 .footer-brand .brand { color: var(--white); }
-.footer-brand .brand-logo {
-  height: 68px;
-  background: #fff;
-  padding: 10px 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0,0,0,.25);
-}
+.footer-brand .brand-logo { height: 68px; }
 .footer-brand .brand-tag {
   color: rgba(255,255,255,.65);
   border-color: rgba(255,255,255,.14);
