@@ -575,9 +575,14 @@ section.tight { padding: 64px 0; }
   inset: 0;
   background-size: cover;
   background-position: center;
-  transition: transform 600ms ease;
+  background-repeat: no-repeat;
+  transition: transform 700ms cubic-bezier(.2,.7,.2,1), filter var(--t);
+  filter: saturate(.55) contrast(1.05) brightness(.88);
 }
-.project:hover .img { transform: scale(1.04); }
+.project:hover .img {
+  transform: scale(1.05);
+  filter: saturate(1) contrast(1) brightness(1);
+}
 .project::after {
   content: "";
   position: absolute;
@@ -612,7 +617,27 @@ section.tight { padding: 64px 0; }
   color: #cfd6e4;
 }
 
-/* Project gradient "images" (fallback — visual is an architectural gradient) */
+/* Project images — real photos (CC-licensed, Wikimedia Commons) + arch. sketch */
+.img-palat-culturii    { background-image: url('images/palat-culturii.jpg'); }
+.img-cetatea-neamtului { background-image: url('images/cetatea-neamtului.jpg'); }
+.img-teatrul-national  { background-image: url('images/teatrul-national.jpg'); }
+.img-palatul-ruginoasa { background-image: url('images/palatul-ruginoasa.jpg'); }
+.img-aeroport-iasi     { background-image: url('images/aeroport-iasi.jpg'); }
+/* Minimalist architectural sketch — when no public photo is available */
+.img-sketch {
+  background-color: #08162b;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+    url('images/iro-sketch.svg');
+  background-size: 20px 20px, 20px 20px, 78% auto;
+  background-position: 0 0, 0 0, center 55%;
+  background-repeat: repeat, repeat, no-repeat;
+  filter: none !important;
+}
+.project:hover .img-sketch { transform: none; }
+
+/* Legacy gradient classes — fallback for portofoliu sub-projects without photos */
 .img-gradient-1 { background: linear-gradient(135deg, #2c3e50 0%, #4a6a8a 50%, #7d9cbf 100%); }
 .img-gradient-2 { background: linear-gradient(135deg, #3d2e1f 0%, #6b5434 50%, #a1855b 100%); }
 .img-gradient-3 { background: linear-gradient(135deg, #1f3a4d 0%, #395f7a 50%, #6896b5 100%); }
